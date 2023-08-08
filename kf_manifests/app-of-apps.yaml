@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: deploykf-app-of-apps
+  namespace: "argocd"
+  labels:
+    app.kubernetes.io/name: deploykf-app-of-apps
+    app.kubernetes.io/part-of: deploykf
+spec:
+  project: "default"
+  source:
+    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    targetRevision: "main"
+    path: "kf_manifests/argocd"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: "argocd"
