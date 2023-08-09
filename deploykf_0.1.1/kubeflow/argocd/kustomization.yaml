@@ -6,6 +6,12 @@ resources:
   ###########################
   ## deploykf-dependencies ##
   ###########################
+  - deploykf-dependencies/cert-manager.yaml
+  - namespaces/cert-manager.yaml
+  - deploykf-dependencies/istio.yaml
+  - namespaces/istio.yaml
+  - deploykf-dependencies/kyverno.yaml
+  - namespaces/kyverno.yaml
 
   ###################
   ## deploykf-core ##
