@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: mlops-app-of-apps
+  namespace: argocd
 spec:
   destination:
     name: ''
@@ -9,11 +10,11 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: deploykf_0.1.1/kubeflow/argocd
-    repoURL: 'https://github.com/baseonballs/jdev-asgard-mlops'
+    repoURL: https://github.com/baseonballs/jdev-asgard-mlops
     targetRevision: HEAD
   sources: []
   project: default
   syncPolicy:
     automated:
       prune: false
-      selfHeal: false
+      selfHeal: true
