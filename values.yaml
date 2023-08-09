@@ -35,7 +35,7 @@ argocd:
       ##  - for example, if you are using a folder named 'GENERATOR_OUTPUT' at the root of your repo,
       ##    you might set this value to "./GENERATOR_OUTPUT/"
       ##
-      path: "kf_manifests"
+      path: "GENERATE_OUTPUT"
 
   ## the destination used for deployKF argocd applications
   ##
