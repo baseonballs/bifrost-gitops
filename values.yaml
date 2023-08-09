@@ -31,7 +31,7 @@ argocd:
       ##  - for example, if you are using a GitHub repo named 'deployKF/examples', you might set this value
       ##    to "https://github.com/deployKF/examples" or "git@github.com:deployKF/examples.git"
       ##
-      url: "https://github.com/deployKF/examples"
+      url: "https://github.com/baseonballs/jdev-asgard-mlops"
 
       ## the git revision which contains your generated manifests
       ##  - for example, if you are using the 'main' branch of your repo, you might set this value to "main"
@@ -42,7 +42,7 @@ argocd:
       ##  - for example, if you are using a folder named 'GENERATOR_OUTPUT' at the root of your repo,
       ##    you might set this value to "./GENERATOR_OUTPUT/"
       ##
-      path: "./deploykf_0.1.1/GENERATOR_OUTPUT/"
+      path: "./deploykf_0.1.1/kubeflow/"
 
   ## the destination used for deployKF argocd applications
   ##  - the value of `destination.name` takes precedence over `destination.server`
@@ -63,7 +63,7 @@ deploykf_dependencies:
   ##             cert-manager
   ## --------------------------------------
   cert_manager:
-    enabled: true
+    enabled: false
     namespace: cert-manager
 
     ## istio gateway certificate issuer configs
@@ -80,7 +80,7 @@ deploykf_dependencies:
   ##                 istio
   ## --------------------------------------
   istio:
-    enabled: true
+    enabled: false
     namespace: istio-system
 
 
@@ -88,7 +88,7 @@ deploykf_dependencies:
   ##                kyverno
   ## --------------------------------------
   kyverno:
-    enabled: true
+    enabled: false
     namespace: kyverno
 
 
@@ -124,13 +124,13 @@ deploykf_core:
       ##     - python -c 'import bcrypt; print(bcrypt.hashpw(b"PASSWORD_STRING", bcrypt.gensalt(10)).decode())'
       ##
       staticPasswords:
-        - email: "admin@example.com"
+        - email: "admin@baseonballs.com"
           password:
             value: "admin"
-        - email: "user1@example.com"
+        - email: "jdev@baseonballs.com"
           password:
-            value: "user1"
-        - email: "user2@example.com"
+            value: "jdev"
+        - email: "user2@baseonballs.com"
           password:
             value: "user2"
 
@@ -203,7 +203,7 @@ deploykf_core:
 
     ## istio gateway configs
     gateway:
-      hostname: deploykf.example.com
+      hostname: deploykf.baseonballs.com
       ports:
         http: 8080
         https: 8443
@@ -244,7 +244,7 @@ deploykf_core:
       ##  - [WARNING] changing the `ownerEmail` of profiles requires ~manual~ steps
       ##              https://github.com/kubeflow/kubeflow/issues/6576
       ##
-      ownerEmail: "admin@example.com"
+      ownerEmail: "admin@baseonballs.com"
 
       ## the default access for members of profiles, when not explicitly specified
       ##  - `role`: the Kubernetes RBAC role to bind to the user in the profile namespace
@@ -315,10 +315,10 @@ deploykf_core:
     ##     - `email`: the email of the user (must exactly match the email from your identity provider)
     ##
     users:
-      - id: user-1
-        email: "user1@example.com"
-      - id: user-2
-        email: "user2@example.com"
+      - id: jdev
+        email: "jdev@baseonballs.com"
+      - id: jdev2
+        email: "user2@baseonballs.com"
 
     ## group entities
     ##  - a list of groups that can be referenced when defining profile members
@@ -329,8 +329,8 @@ deploykf_core:
     groups:
       - id: team-1
         users:
-          - user-1
-          - user-2
+          - jdev
+          - jdev2
 
     ## profile definitions
     ##  - [WARNING] changing the `ownerEmail` of a profile requires ~manual~ steps
@@ -500,7 +500,7 @@ kubeflow_tools:
     ##
     mysql:
       useExternal: false
-      host: "mysql.example.com"
+      host: "mysql.baseonballs.com"
       port: 3306
       auth:
         username: kubeflow
@@ -582,7 +582,7 @@ kubeflow_tools:
     ##
     mysql:
       useExternal: false
-      host: "mysql.example.com"
+      host: "mysql.baseonballs.com"
       port: 3306
       auth:
         username: kubeflow
