@@ -2,32 +2,40 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kf-dep--argo-workflows
+  name: kf-tools--pipelines
   namespace: "argocd"
   labels:
-    app.kubernetes.io/name: kubeflow-argo-workflows
-    app.kubernetes.io/component: kubeflow-dependencies
+    app.kubernetes.io/name: pipelines
+    app.kubernetes.io/component: kubeflow-tools
     app.kubernetes.io/part-of: "deploykf"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    repoURL: "https://github.com/deployKF/examples"
     targetRevision: "main"
-    path: "GENERATE_OUTPUT/manifests/kubeflow-dependencies/kubeflow-argo-workflows"
-    helm:
-      ignoreMissingValueFiles: true
-      valueFiles:
-        - values-overrides.yaml
+    path: "deploykf_0.1.1/GENERATOR_OUTPUT/manifests/kubeflow-tools/pipelines"
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: "kubeflow-argo-workflows"
+    namespace: kubeflow
   syncPolicy:
     syncOptions:
       ## ensure argo-cd does not remove the fields added by kyverno
       - RespectIgnoreDifferences=true
   ignoreDifferences:
+    ## `caBundle` is injected by cert-manager
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      jqPathExpressions:
+        - ".webhooks[]?.clientConfig.caBundle"
+
+    ## `rules` are aggregated when `aggregationRule.clusterRoleSelectors` is set
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      jqPathExpressions:
+        - "select(.aggregationRule.clusterRoleSelectors | length > 0) | .rules"
+
     ## we use kyverno to trigger restarts by setting the "deploykf.org/restart-trigger" annotation when secrets change
     - group: apps
       kind: Deployment

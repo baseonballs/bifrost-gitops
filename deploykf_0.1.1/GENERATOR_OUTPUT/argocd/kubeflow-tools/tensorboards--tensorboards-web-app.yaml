@@ -2,10 +2,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kf-tools--volumes--volumes-web-app
+  name: kf-tools--tensorboards--tensorboards-web-app
   namespace: "argocd"
   labels:
-    app.kubernetes.io/name: volumes-web-app
+    app.kubernetes.io/name: tensorboards-web-app
     app.kubernetes.io/component: kubeflow-tools
     app.kubernetes.io/part-of: "deploykf"
   finalizers:
@@ -13,9 +13,9 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    repoURL: "https://github.com/deployKF/examples"
     targetRevision: "main"
-    path: "GENERATE_OUTPUT/manifests/kubeflow-tools/volumes/volumes-web-app"
+    path: "deploykf_0.1.1/GENERATOR_OUTPUT/manifests/kubeflow-tools/tensorboards/tensorboards-web-app"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeflow

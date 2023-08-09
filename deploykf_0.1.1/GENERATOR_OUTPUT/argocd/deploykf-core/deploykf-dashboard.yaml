@@ -2,24 +2,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dkf-dep--cert-manager
+  name: dkf-core--deploykf-dashboard
   namespace: "argocd"
   labels:
-    app.kubernetes.io/name: cert-manager
-    app.kubernetes.io/component: deploykf-dependencies
+    app.kubernetes.io/name: deploykf-dashboard
+    app.kubernetes.io/component: deploykf-core
     app.kubernetes.io/part-of: "deploykf"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    repoURL: "https://github.com/deployKF/examples"
     targetRevision: "main"
-    path: "GENERATE_OUTPUT/manifests/deploykf-dependencies/cert-manager"
+    path: "deploykf_0.1.1/GENERATOR_OUTPUT/manifests/deploykf-core/deploykf-dashboard"
     helm:
       ignoreMissingValueFiles: true
       valueFiles:
         - values-overrides.yaml
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: "cert-manager"
+    namespace: "deploykf-dashboard"

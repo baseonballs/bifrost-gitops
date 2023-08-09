@@ -10,9 +10,9 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    repoURL: "https://github.com/deployKF/examples"
     targetRevision: "main"
-    path: "GENERATE_OUTPUT/argocd"
+    path: "deploykf_0.1.1/GENERATOR_OUTPUT/argocd"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "argocd"

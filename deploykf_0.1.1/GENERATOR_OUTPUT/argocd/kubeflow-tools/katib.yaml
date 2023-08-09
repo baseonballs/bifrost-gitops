@@ -13,9 +13,9 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    repoURL: "https://github.com/deployKF/examples"
     targetRevision: "main"
-    path: "GENERATE_OUTPUT/manifests/kubeflow-tools/katib"
+    path: "deploykf_0.1.1/GENERATOR_OUTPUT/manifests/kubeflow-tools/katib"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeflow

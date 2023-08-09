@@ -2,10 +2,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kf-tools--training-operator
+  name: kf-tools--notebooks--notebook-controller
   namespace: "argocd"
   labels:
-    app.kubernetes.io/name: training-operator
+    app.kubernetes.io/name: notebook-controller
     app.kubernetes.io/component: kubeflow-tools
     app.kubernetes.io/part-of: "deploykf"
   finalizers:
@@ -13,9 +13,9 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    repoURL: "https://github.com/deployKF/examples"
     targetRevision: "main"
-    path: "GENERATE_OUTPUT/manifests/kubeflow-tools/training-operator"
+    path: "deploykf_0.1.1/GENERATOR_OUTPUT/manifests/kubeflow-tools/notebooks/notebook-controller"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeflow
