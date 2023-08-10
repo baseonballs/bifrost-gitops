@@ -13,25 +13,16 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops"
+    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
     targetRevision: "main"
-    path: "deploykf_0.1.1/manifests/kubeflow-tools/katib"
+    path: "deploykf/v0.1.1/manifests/kubeflow-tools/katib"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeflow
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       ## ensure argo-cd does not remove the fields added by kyverno
       - RespectIgnoreDifferences=true
-    retry:
-      limit: 3
-      backoff:
-        duration: 5s
-        maxDuration: 3m0s
-        factor: 2
   ignoreDifferences:
     ## `caBundle` is injected by cert-manager
     - group: admissionregistration.k8s.io

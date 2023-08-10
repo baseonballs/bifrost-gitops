@@ -11,7 +11,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: "default"
   syncPolicy:
     automated:
       prune: true
@@ -25,9 +25,9 @@ spec:
         maxDuration: 3m0s
         factor: 2
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops"
+    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
     targetRevision: "main"
-    path: "deploykf_0.1.1/manifests/deploykf-dependencies/istio"
+    path: "deploykf/v0.1.1/manifests/deploykf-dependencies/istio"
     helm:
       ignoreMissingValueFiles: true
       valueFiles:

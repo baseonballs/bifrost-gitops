@@ -17,11 +17,3 @@ argocd app create helm-guestbook --repo  https://github.com/argoproj/argocd-exam
     --dest-server https://kubernetes.default.svc \
     --dest-namespace argohelmtest
 
-# use argocd sync
-argocd app sync "mlops-app-of-apps"
-argocd app sync -l "app.kubernetes.io/component=deploykf-dependencies"
-argocd app sync -l "app.kubernetes.io/component=deploykf-core"
-argocd app sync -l "app.kubernetes.io/component=deploykf-opt"
-argocd app sync -l "app.kubernetes.io/component=deploykf-tools"
-argocd app sync -l "app.kubernetes.io/component=kubeflow-dependencies"
-argocd app sync -l "app.kubernetes.io/component=kubeflow-tools"

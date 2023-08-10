@@ -11,23 +11,11 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - Replace=true
-    retry:
-      limit: 3
-      backoff:
-        duration: 5s
-        maxDuration: 3m0s
-        factor: 2
+  project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops"
+    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
     targetRevision: "main"
-    path: "deploykf_0.1.1/manifests/deploykf-core/deploykf-dashboard"
+    path: "deploykf/v0.1.1/manifests/deploykf-core/deploykf-dashboard"
     helm:
       ignoreMissingValueFiles: true
       valueFiles:

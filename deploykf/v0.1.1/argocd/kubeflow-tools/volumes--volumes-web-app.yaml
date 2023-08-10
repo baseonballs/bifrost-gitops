@@ -12,22 +12,10 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: "default"
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - Replace=true
-    retry:
-      limit: 3
-      backoff:
-        duration: 5s
-        maxDuration: 3m0s
-        factor: 2
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops"
+    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
     targetRevision: "main"
-    path: "deploykf_0.1.1/manifests/kubeflow-tools/volumes/volumes-web-app"
+    path: "deploykf/v0.1.1/manifests/kubeflow-tools/volumes/volumes-web-app"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeflow
