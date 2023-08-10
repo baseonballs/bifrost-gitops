@@ -8,13 +8,13 @@ cd "$PWD_PATH"
 # source the environment vaqriable
 source ./env.sh
 
-rm -rf ${DIR_SRCVER}
+rm -rf ${DIR_SRCVER_GENERATED}
 
 function generate_manifests() {
   deploykf generate \
     --source-version ${SEMVER} \
     --values ../values.yaml \
-    --output-dir ../${DIR_SRCVER}/${DIR_GENERATED}
+    --output-dir ../${DIR_SRCVER_GENERATED}
 }
 
 
