@@ -1,0 +1,27 @@
+# Global
+domain: 
+storageClass: "do-block-storage"
+# Infra specific applications
+# note: do not enable kyversno, cert-manager and istio since these are bootstrapped by the deploykf manager.
+bots:
+  enable: false
+guestbook:
+  enable: false
+sockshop:
+  enable: false
+certmanager:
+  enable: false
+kyverno:
+  enable: false  
+logging:
+  enable: false
+observability:
+  enable: false
+  pdkey:
+  storageSize: 10Gi
+  retention: 7d
+traefik:
+  enable: false  
+trivy:
+  enable: false
+
