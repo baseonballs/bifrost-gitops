@@ -13,7 +13,7 @@ rm -rf ${DIR_SRCVER_GENERATED}
 function generate_manifests() {
   deploykf generate \
     --source-version ${SEMVER} \
-    --values ../values.yaml \
+    --values ./values.yaml \
     --output-dir ../${DIR_SRCVER_GENERATED}
 }
 
