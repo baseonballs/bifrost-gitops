@@ -17,3 +17,13 @@ argocd app create helm-guestbook --repo  https://github.com/argoproj/argocd-exam
     --dest-server https://kubernetes.default.svc \
     --dest-namespace argohelmtest
 
+kubectl get svc -n deploykf-istio-gateway
+
+namespace: deploykf-istio-gateway
+service-name: deploykf-gateway
+
+// port fowarod
+kubectl port-forward -n deploykf-istio-gateway svc/deploykf-gateway 8080:8080
+
+doing so gives an error:
+ExtAuthz did not set 'x-auth-request-email' header
