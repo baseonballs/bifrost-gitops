@@ -11,7 +11,7 @@ spec:
     namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
-    path: deploykf_0.1.1/kubeflow/argocd
+    path: deploykf_0.1.1/argocd
     repoURL: 'https://github.com/baseonballs/jdev-asgard-mlops.git'
     targetRevision: HEAD
   sources: []

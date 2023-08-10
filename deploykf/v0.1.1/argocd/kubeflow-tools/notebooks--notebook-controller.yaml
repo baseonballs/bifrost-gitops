@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: "https://github.com/baseonballs/jdev-asgard-mlops"
     targetRevision: "main"
-    path: "deploykf_0.1.1/kubeflow/manifests/kubeflow-tools/notebooks/notebook-controller"
+    path: "deploykf_0.1.1/manifests/kubeflow-tools/notebooks/notebook-controller"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeflow
