@@ -24,9 +24,18 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: "deploykf-auth"
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       ## ensure argo-cd does not remove the fields added by kyverno
       - RespectIgnoreDifferences=true
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
   ignoreDifferences:
     ## we use kyverno to trigger restarts by setting the "deploykf.org/restart-trigger" annotation when secrets change
     - group: apps
