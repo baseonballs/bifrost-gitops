@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argocd-apps/bootstrap-resources
+    path: asgard-bifrost-bootstrap/bootstrap-resources
     repoURL: https://github.com/baseonballs/jdev-asgard-gitops.git
     targetRevision: HEAD
     helm:

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: asgard-peng-bootstrap
+  name: asgard-bifrost-bootstrap
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argocd-apps
+    path: asgard-bifrost-bootstrap
     repoURL: https://github.com/baseonballs/jdev-asgard-gitops.git
     targetRevision: HEAD
   syncPolicy:

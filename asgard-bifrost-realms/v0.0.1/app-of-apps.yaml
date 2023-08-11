@@ -5,7 +5,7 @@ metadata:
   name: "asgard-bifrost-apps"
   namespace: "argocd"
   labels:
-    app.kubernetes.io/name: asgard-bifrost-apps
+    app.kubernetes.io/name: asgard-bifrost-realms-apps
     app.kubernetes.io/part-of: "asgard-bifrost"
 spec:
   project: "default"
@@ -24,7 +24,7 @@ spec:
   source:
     repoURL: "https://github.com/baseonballs/jdev-asgard-gitops.git"
     targetRevision: "main"
-    path: "asgard-bifrost/v0.0.1/custom-wide"
+    path: "asgard-bifrost-realms/v0.0.1/cluster-wide"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "argocd"
