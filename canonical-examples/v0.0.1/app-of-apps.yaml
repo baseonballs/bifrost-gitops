@@ -1,0 +1,30 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "canonical-examples"
+  namespace: "argocd"
+  labels:
+    app.kubernetes.io/name: canonical-examples
+    app.kubernetes.io/part-of: canonical-examples
+spec:
+  project: "default"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Replace=true
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  source:
+    repoURL: "https://github.com/baseonballs/bifrost-gitops.git"
+    targetRevision: "main"
+    path: "canonical-examples/v0.0.1/cluster-wide"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: "argocd"
