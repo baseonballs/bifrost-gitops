@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "asgard-bifrost"
+  labels:
+    istio-injection: disabled
+    bifrost.asgard.baseonballs.io/rev: v0.0.1

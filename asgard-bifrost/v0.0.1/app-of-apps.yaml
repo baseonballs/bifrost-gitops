@@ -1,0 +1,30 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "asgard-bifrost-apps"
+  namespace: "argocd"
+  labels:
+    app.kubernetes.io/name: asgard-bifrost-apps
+    app.kubernetes.io/part-of: "asgard-bifrost"
+spec:
+  project: "default"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Replace=true
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  source:
+    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    targetRevision: "main"
+    path: "asgard-bifrost/v0.0.1/custom-wide"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: "argocd"

@@ -14,7 +14,7 @@ certmanager:
 kyverno:
   enable: false  
 logging:
-  enable: false
+  enable: true
 observability:
   enable: false
   pdkey:
@@ -23,5 +23,5 @@ observability:
 traefik:
   enable: false  
 trivy:
-  enable: false
+  enable: true
 
