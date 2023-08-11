@@ -26,7 +26,7 @@ spec:
         maxDuration: 3m0s
         factor: 2
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-gitops.git"
+    repoURL: "https://github.com/baseonballs/bifrost-gitops.git"
     targetRevision: "main"
     path: "deploykf/v0.1.1/manifests/kubeflow-tools/tensorboards/tensorboard-controller"
   destination:

@@ -16,7 +16,7 @@ spec:
   project: default
   source:
     path: bifrost-bootstrap
-    repoURL: https://github.com/baseonballs/jdev-asgard-gitops.git
+    repoURL: https://github.com/baseonballs/bifrost-gitops.git
     targetRevision: HEAD
   syncPolicy:
     automated:

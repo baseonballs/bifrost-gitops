@@ -19,7 +19,7 @@ Gods:  Odin - ruler of the Asgard, and chief of Aesir.  he is married to Frigg, 
 - Helheim - Home of dishonorable dead (basically hell)
 
 
-# Concepts of jdev-asgard-gitops
+# Concepts of bifrost-gitops
 
 # Bootstrap registry of argcd-managed applications.
 
