@@ -16,7 +16,7 @@ kyverno:
 logging:
   enable: true
 observability:
-  enable: false
+  enable: true
   pdkey:
   storageSize: 10Gi
   retention: 7d
