@@ -13,7 +13,7 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    repoURL: "https://github.com/baseonballs/jdev-asgard-gitops.git"
     targetRevision: "main"
     path: "deploykf/v0.1.1/manifests/deploykf-core/deploykf-auth"
     helm:

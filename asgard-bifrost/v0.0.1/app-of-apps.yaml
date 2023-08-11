@@ -22,7 +22,7 @@ spec:
         maxDuration: 3m0s
         factor: 2
   source:
-    repoURL: "https://github.com/baseonballs/jdev-asgard-mlops.git"
+    repoURL: "https://github.com/baseonballs/jdev-asgard-gitops.git"
     targetRevision: "main"
     path: "asgard-bifrost/v0.0.1/custom-wide"
   destination:
