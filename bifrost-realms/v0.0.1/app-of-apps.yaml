@@ -24,7 +24,7 @@ spec:
   source:
     repoURL: "https://github.com/baseonballs/bifrost-gitops.git"
     targetRevision: "main"
-    path: "asgard-bifrost-realms/v0.0.1/cluster-wide"
+    path: "bifrost-realms/v0.0.1/cluster-wide"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "argocd"
