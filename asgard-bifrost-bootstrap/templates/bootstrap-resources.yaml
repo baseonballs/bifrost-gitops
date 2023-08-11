@@ -1,8 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bootstrap-resources
+  name: asgard-bifrost-bootstrap-resource
   namespace: argocd
+  labels:
+    app.kubernetes.io/name: asgard-bifrost-bootstrap-resource
+    app.kubernetes.io/part-of: asgard-bifrost
 spec:
   destination:
     namespace: argocd

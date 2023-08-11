@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: asgard-bifrost-bootstrap
   namespace: argocd
+  labels:
+    app.kubernetes.io/name: asgard-bifrost-bootstrap
+    app.kubernetes.io/part-of: asgard-bifrost
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
