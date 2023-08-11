@@ -2,11 +2,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: "asgard-bifrost-realms"
+  name: "bifrost-realms"
   namespace: "argocd"
   labels:
-    app.kubernetes.io/name: asgard-bifrost-realms
-    app.kubernetes.io/part-of: asgard-bifrost
+    app.kubernetes.io/name: bifrost-realms
+    app.kubernetes.io/part-of: bifrost
 spec:
   project: "default"
   syncPolicy:
