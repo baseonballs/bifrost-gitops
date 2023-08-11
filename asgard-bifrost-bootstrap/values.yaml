@@ -14,7 +14,7 @@ certmanager:
 kyverno:
   enable: false  
 logging:
-  enable: true
+  enable: false
 metrics:
   enable: false
 observability:
