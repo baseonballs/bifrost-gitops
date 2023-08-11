@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: asgard-bifrost-bootstrap
+  name: bifrost-bootstrap
   namespace: argocd
   labels:
-    app.kubernetes.io/name: asgard-bifrost-bootstrap
-    app.kubernetes.io/part-of: asgard-bifrost
+    app.kubernetes.io/name: bifrost-bootstrap
+    app.kubernetes.io/part-of: bifrost
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,7 +15,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: asgard-bifrost-bootstrap
+    path: bifrost-bootstrap
     repoURL: https://github.com/baseonballs/jdev-asgard-gitops.git
     targetRevision: HEAD
   syncPolicy:
