@@ -16,9 +16,9 @@ kyverno:
 logging:
   enable: true
 metrics:
-  enable: true
+  enable: false
 observability:
-  enable: true
+  enable: false
   pdkey:
   storageSize: 10Gi
   retention: 7d
