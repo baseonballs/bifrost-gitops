@@ -14,16 +14,16 @@ certmanager:
 kyverno:
   enable: false  
 logging:
-  enable: false
+  enable: true
 metrics:
-  enable: false
+  enable: true
 observability:
-  enable: false
+  enable: true
   pdkey:
   storageSize: 10Gi
   retention: 7d
 traefik:
-  enable: false  
+  enable: true  
 trivy:
   enable: false
 
