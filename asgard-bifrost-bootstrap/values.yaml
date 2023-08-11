@@ -15,6 +15,8 @@ kyverno:
   enable: false  
 logging:
   enable: true
+metrics:
+  enable: true
 observability:
   enable: true
   pdkey:
@@ -23,5 +25,5 @@ observability:
 traefik:
   enable: false  
 trivy:
-  enable: true
+  enable: false
 
