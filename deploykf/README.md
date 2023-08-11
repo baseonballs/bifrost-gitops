@@ -10,7 +10,7 @@ A tool for bootstrapping the entiure kubeflow ecosystem onto a kubernestes clust
 # Using argocd sync
 
 
-argocd app sync "mlops-app-of-apps"
+argocd app sync "gitops-app-of-apps"
 argocd app sync -l "app.kubernetes.io/component=deploykf-dependencies"
 argocd app sync -l "app.kubernetes.io/component=deploykf-core"
 argocd app sync -l "app.kubernetes.io/component=deploykf-opt"
