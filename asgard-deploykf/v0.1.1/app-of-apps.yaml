@@ -2,11 +2,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: "asgard-deploykf-apps"
+  name: "asgard-deploykf"
   namespace: "argocd"
   labels:
-    app.kubernetes.io/name: asgard-deploykf-apps
-    app.kubernetes.io/part-of: "deploykf"
+    app.kubernetes.io/name: asgard-deploykf
+    app.kubernetes.io/part-of: "asgard-deploykf"
 spec:
   project: "default"
   syncPolicy:
@@ -24,7 +24,7 @@ spec:
   source:
     repoURL: "https://github.com/baseonballs/bifrost-gitops.git"
     targetRevision: "main"
-    path: "deploykf/v0.1.1/argocd"
+    path: "asgard-deploykf/v0.1.1/argocd"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "argocd"
