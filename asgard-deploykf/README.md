@@ -9,14 +9,55 @@ A tool for bootstrapping the entiure kubeflow ecosystem onto a kubernestes clust
 
 # Using argocd sync
 
+## log into argocd
 
-argocd app sync "gitops-app-of-apps"
+1. argopw
+2. argocd login $ARGO_HOST:$ARGO_PORT --insecure
+3. hit , y to insecure access to https://$ARGO_HOST:$ARGO_PORT, enter admin & admin's password [from argopw]
+
+# to list the app associated with app.kubernetes.io/component use:.e.g., argocd app list -l "app.kubernetes.io/component=deploykf-core"
+
+[Ordered Dependencies]
+argocd app set "argocd/asgard-deploykf" --sync-policy automated --auto-prune --self-heal
 argocd app sync -l "app.kubernetes.io/component=deploykf-dependencies"
+  argocd app set "argocd/dkf-dep--cert-manager" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/dkf-dep--istio" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/dkf-dep--kyverno" --sync-policy automated --auto-prune --self-heal
 argocd app sync -l "app.kubernetes.io/component=deploykf-core"
+  argocd app set "argocd/dkf-core--deploykf-auth" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/dkf-core--deploykf-dashboard" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/dkf-core--deploykf-istio-gateway" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/dkf-core--deploykf-profiles-generator" --sync-policy automated --auto-prune --self-heal
 argocd app sync -l "app.kubernetes.io/component=deploykf-opt"
+  argocd app set "argocd/dkf-opt--deploykf-minio" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/dkf-opt--deploykf-mysql" --sync-policy automated --auto-prune --self-heal
 argocd app sync -l "app.kubernetes.io/component=deploykf-tools"
 argocd app sync -l "app.kubernetes.io/component=kubeflow-dependencies"
+  argocd app set "argocd/kf-dep--argo-workflows" --sync-policy automated --auto-prune --self-heal
 argocd app sync -l "app.kubernetes.io/component=kubeflow-tools"
+  argocd app set "argocd/kf-tools--katib" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/kf-tools--notebooks--jupyter-web-app" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/kf-tools--notebooks--notebook-controller" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/kf-tools--pipelines" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/kf-tools--poddefaults-webhook" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/kf-tools--tensorboards--tensorboard-controller" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/kf-tools--tensorboards--tensorboards-web-app" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/kf-tools--training-operator" --sync-policy automated --auto-prune --self-heal
+  argocd app set "argocd/kf-tools--volumes--volumes-web-app" --sync-policy automated --auto-prune --self-heal
+
+## set auto sync policy
+
+argocd app set "argocd/asgard-deploykf" --sync-policy automated --auto-prune --self-heal
+argicd app set [by label doesn't work]
+[hack]
+
+argocd app list "argocd/asgard-deploykf"
+argocd app list -l "app.kubernetes.io/component=deploykf-dependencies"
+argocd app list -l "app.kubernetes.io/component=deploykf-core"
+argocd app list -l "app.kubernetes.io/component=deploykf-opt"
+argocd app list -l "app.kubernetes.io/component=deploykf-tools"
+argocd app list -l "app.kubernetes.io/component=kubeflow-dependencies"
+argocd app list -l "app.kubernetes.io/component=kubeflow-tools"
 
 
 # once the apps are synced and fully deployed; proceed to port foward teh deploykf-gateway.
