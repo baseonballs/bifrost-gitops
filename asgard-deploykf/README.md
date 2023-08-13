@@ -51,6 +51,8 @@ argocd app set "argocd/asgard-deploykf" --sync-policy automated --auto-prune --s
 argicd app set [by label doesn't work]
 [hack]
 
+## Schedule sync request via argocd using group labels assignedd as app.kubernetes.io/component
+
 argocd app list "argocd/asgard-deploykf"
 argocd app list -l "app.kubernetes.io/component=deploykf-dependencies"
 argocd app list -l "app.kubernetes.io/component=deploykf-core"
