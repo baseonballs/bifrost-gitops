@@ -6,6 +6,7 @@ metadata:
   namespace: "argocd"
   labels:
     app.kubernetes.io/name: bifrost-realms
+    app.kubernetes.io/component: infra
     app.kubernetes.io/part-of: bifrost
 spec:
   project: "default"
