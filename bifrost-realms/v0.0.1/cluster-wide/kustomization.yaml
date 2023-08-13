@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - namespaces/asgard-bifrost.yaml
+  - namespaces/bifrost.yaml
   - namespaces/team1.yaml
   - namespaces/team1-prod.yaml
