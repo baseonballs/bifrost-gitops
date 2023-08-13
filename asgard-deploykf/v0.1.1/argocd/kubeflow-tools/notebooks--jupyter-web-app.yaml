@@ -12,23 +12,10 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: "default"
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      ## ensure argo-cd does not remove the fields added by kyverno
-      - RespectIgnoreDifferences=true
-    retry:
-      limit: 3
-      backoff:
-        duration: 5s
-        maxDuration: 3m0s
-        factor: 2
   source:
     repoURL: "https://github.com/baseonballs/bifrost-gitops.git"
     targetRevision: "main"
-    path: "deploykf/v0.1.1/manifests/kubeflow-tools/notebooks/jupyter-web-app"
+    path: "asgard-deploykf/v0.1.1/manifests/kubeflow-tools/notebooks/jupyter-web-app"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeflow

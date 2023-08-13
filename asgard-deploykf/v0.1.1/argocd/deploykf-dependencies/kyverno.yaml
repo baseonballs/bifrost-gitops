@@ -12,24 +12,10 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: "default"
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      ## kyverno will fail to sync if not using one of `Replace` or `ServerSideApply`
-      ## https://kyverno.io/docs/installation/platform-notes/#notes-for-argocd-users
-      - Replace=true
-    retry:
-      limit: 3
-      backoff:
-        duration: 5s
-        maxDuration: 3m0s
-        factor: 2
   source:
     repoURL: "https://github.com/baseonballs/bifrost-gitops.git"
     targetRevision: "main"
-    path: "deploykf/v0.1.1/manifests/deploykf-dependencies/kyverno"
+    path: "asgard-deploykf/v0.1.1/manifests/deploykf-dependencies/kyverno"
     helm:
       ignoreMissingValueFiles: true
       valueFiles:
@@ -37,3 +23,8 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "kyverno"
+  syncPolicy:
+    syncOptions:
+      ## kyverno will fail to sync if not using one of `Replace` or `ServerSideApply`
+      ## https://kyverno.io/docs/installation/platform-notes/#notes-for-argocd-users
+      - ServerSideApply=true
