@@ -17,7 +17,7 @@ spec:
     targetRevision: 3.11.0
     helm:
       valueFiles:
-      - ./metrics-server-values.yaml
+      - values.yaml
   syncPolicy:
     automated:
       prune: true
