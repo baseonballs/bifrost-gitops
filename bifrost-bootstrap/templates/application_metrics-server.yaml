@@ -16,10 +16,8 @@ spec:
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     targetRevision: 3.11.0
     helm:
-      values: |
-        defaultArgs:
-          - --kubelet-preferred-address-types=InternalIP
-          - --kubelet-insecure-tls
+      valueFiles:
+      - ./metrics-server-values.yaml
   syncPolicy:
     automated:
       prune: true
