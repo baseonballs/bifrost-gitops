@@ -13,22 +13,10 @@ spec:
   project: default
   source:
     chart: metrics-server
-    repoURL: https://kubernetes-sigs.github.io/metrics-server/
+    #repoURL: https://kubernetes-sigs.github.io/metrics-server/
+    repoURL: https://github.com/baseonballs/bifrost-gitops.git
     targetRevision: 3.11.0
-    path: bifrost-bootstrap/templates
-    helm:
-      values: |
-        defaultArgs:
-          - name: "kubelet-insecure-tls"
-            value: true
-          - name: "cert-dir"
-            value: "/tmp"
-          - name: "kubelet-use-node-status-port"
-            value: true
-          - name: "kubelet-preferred-address-types"
-            value: "InternalIP,ExternalIP,Hostname"
-          - name: "metric-resolution"
-            value: "15s"
+    path: bifrost-bootstrap/hack/charts-metrics-server
   syncPolicy:
     automated:
       prune: true
