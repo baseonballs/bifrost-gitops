@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "bifrost-bootstrap-resource"
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: bifrost-bootstrap-resource
+    app.kubernetes.io/part-of: bifrost
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: bifrost-bootstrap/bootstrap-resources
+    repoURL: https://github.com/baseonballs/bifrost-gitops.git
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: domain
+          value: {{ .Values.domain }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

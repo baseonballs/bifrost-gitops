@@ -17,7 +17,9 @@ spec:
     targetRevision: 3.11.0
     helm:
       values: |
-        extraArgs: ["--kubelet-insecure-tls"]
+        defaultArgs:
+          - name: "kubelet-insecure-tls"
+            value: true
   syncPolicy:
     automated:
       prune: true
