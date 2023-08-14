@@ -1,2 +1,0 @@
-defaultArgs:
-  - --kubelet-insecure-tls

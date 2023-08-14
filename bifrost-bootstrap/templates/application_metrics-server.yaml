@@ -18,7 +18,8 @@ spec:
     helm:
       values: |
         defaultArgs:
-          - name: kubelet-insecure-tls
+          - name: "kubelet-insecure-tls"
+            value: true
   syncPolicy:
     automated:
       prune: true
