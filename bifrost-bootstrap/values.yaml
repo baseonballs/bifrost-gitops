@@ -10,7 +10,7 @@ guestbook:
 sockshop:
   enable: false
 certmanager:
-  enable: true
+  enable: false
 kyverno:
   enable: false  
 logging:
