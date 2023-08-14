@@ -17,8 +17,18 @@ spec:
     targetRevision: 3.11.0
     path: bifrost-bootstrap/templates
     helm:
-      valueFiles:
-      - values-metrics-server.yaml
+      values: |
+        defaultArgs:
+          - name: "kubelet-insecure-tls"
+            value: true
+          - name: "cert-dir"
+            value: "/tmp"
+          - name: "kubelet-use-node-status-port"
+            value: true
+          - name: "kubelet-preferred-address-types"
+            value: "InternalIP,ExternalIP,Hostname"
+          - name: "metric-resolution"
+            value: "15s"
   syncPolicy:
     automated:
       prune: true
