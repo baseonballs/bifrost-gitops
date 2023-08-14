@@ -22,9 +22,7 @@ spec:
           - --kubelet-insecure-tls
       parameters:
         name: defaultArgs
-        value:
-          - --kubelet-preferred-address-types=InternalIP
-          - --kubelet-insecure-tls
+        value: --kubelet-insecure-tls
   syncPolicy:
     automated:
       prune: true
