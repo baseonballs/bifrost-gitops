@@ -13,10 +13,12 @@ spec:
   project: default
   source:
     chart: metrics-server
-    #repoURL: https://kubernetes-sigs.github.io/metrics-server/
-    repoURL: https://github.com/baseonballs/bifrost-gitops.git
-    #targetRevision: 3.11.0
-    path: bifrost-bootstrap/hack/charts-metrics-server
+    repoURL: https://kubernetes-sigs.github.io/metrics-server/
+    targetRevision: 3.11.0
+    helm:
+      values: |
+        defaultArgs:
+          - name: "kubelet-insecure-tls"
   syncPolicy:
     automated:
       prune: true
