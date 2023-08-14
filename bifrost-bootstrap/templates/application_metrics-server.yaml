@@ -17,8 +17,8 @@ spec:
     targetRevision: 3.11.0
     helm:
       values: |
-        defaultArgs:
-          - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        extraArgs:
+          - --kubelet-preferred-address-types=InternalIP
           - --kubelet-insecure-tls
   syncPolicy:
     automated:
