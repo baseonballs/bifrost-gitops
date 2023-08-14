@@ -22,7 +22,8 @@ By default, we have disabled most of the apps, but you can easily enable them by
 # values.yaml
 # Global
 domain: 
-storageClass: "do-block-storage"
+storageClass: "standard" # options: [local-storage | standard | ssd | gp2 | gluster] : https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/storage.md
+# kubectl get sc - list the storage class
 # Application specific
 bots:
   enable: false
