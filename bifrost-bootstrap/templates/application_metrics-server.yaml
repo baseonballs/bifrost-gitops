@@ -15,10 +15,6 @@ spec:
     chart: metrics-server
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     targetRevision: 3.11.0
-    helm:
-      parameters:
-        name: defaultArgs
-        value: --kubelet-insecure-tls
   syncPolicy:
     automated:
       prune: true
