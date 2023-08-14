@@ -18,7 +18,8 @@ spec:
     helm:
       values: |
         defaultArgs:
-          - name: "kubelet-insecure-tls"
+          - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+          - --kubelet-insecure-tls
   syncPolicy:
     automated:
       prune: true
