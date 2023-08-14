@@ -1,6 +1,6 @@
 # Global
 domain: 
-storageClass: "do-block-storage"
+storageClass: "standard"
 # Infra specific applications
 # note: do not enable kyversno, cert-manager and istio since these are bootstrapped by the deploykf manager.
 bots:
