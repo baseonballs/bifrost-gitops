@@ -16,8 +16,9 @@ spec:
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     targetRevision: 3.11.0
     helm:
-      valueFiles:
-      - values.yaml
+      values: |
+        defaultArgs:
+          - name: kubelet-insecure-tls
   syncPolicy:
     automated:
       prune: true
