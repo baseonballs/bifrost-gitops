@@ -15,11 +15,10 @@ spec:
     chart: metrics-server
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     targetRevision: 3.11.0
+    path: bifrost-bootstrap/templates
     helm:
-      values: |
-        defaultArgs:
-          - name: "kubelet-insecure-tls"
-            value: true
+      valueFiles:
+      - values-metrics-server.yaml
   syncPolicy:
     automated:
       prune: true
