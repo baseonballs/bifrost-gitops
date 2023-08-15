@@ -2,10 +2,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: "deploykf-app-of-apps"
+  name: "asgard-deploykf"
   namespace: "argocd"
   labels:
-    app.kubernetes.io/name: deploykf-app-of-apps
+    app.kubernetes.io/name: asgard-deploykf
     app.kubernetes.io/part-of: "deploykf"
 spec:
   project: "default"

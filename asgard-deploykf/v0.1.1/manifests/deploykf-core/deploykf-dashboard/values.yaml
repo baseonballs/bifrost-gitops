@@ -136,7 +136,7 @@ centralDashboard:
 profileController:
   image:
     repository: "kubeflownotebookswg/profile-controller"
-    tag: "v1.6.1"
+    tag: "1.8.0-rc.0"
     pullPolicy: "IfNotPresent"
     pullSecret: ""
     uid: 0
@@ -179,7 +179,7 @@ profileController:
 kfamAPI:
   image:
     repository: "kubeflownotebookswg/kfam"
-    tag: "v1.6.1"
+    tag: "1.8.0-rc.0"
     pullPolicy: "IfNotPresent"
     pullSecret: ""
     uid: 0
