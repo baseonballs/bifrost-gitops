@@ -222,12 +222,12 @@ deploykf_core:
     
       profileController:
         repository: kubeflownotebookswg/profile-controller
-        tag: 1.8.0-rc.0
+        tag: v1.6.1
         pullPolicy: IfNotPresent
 
       kfamApi:
         repository: kubeflownotebookswg/kfam
-        tag: 1.8.0-rc.0
+        tag: v1.6.1
         pullPolicy: IfNotPresent
 
 

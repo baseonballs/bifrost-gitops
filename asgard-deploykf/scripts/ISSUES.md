@@ -9,6 +9,9 @@ docker command: docker pull kubeflownotebookswg/profile-controller:v1.7.0
 +docker: docker pull --platform linux/arm64/v8 kubeflownotebookswg/profile-controller:v1.7.0
 docker pull --platform linux/x86_64 kubeflownotebookswg/profile-controller:v1.7.0
 
+last good build: docker pull kubeflownotebookswg/profile-controller:a2612f2
+last good releasae: docker pull kubeflownotebookswg/profile-controller:v1.6.1
+
 - kubeflownotebookswg/profile-controller:1.8.0-rc.0
 1. ref: https://hub.docker.com/r/kubeflownotebookswg/profile-controller/tags
 - kubeflownotebookswg/kfam:1.8.0-rc.0
