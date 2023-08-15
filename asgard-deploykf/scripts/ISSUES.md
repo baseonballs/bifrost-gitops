@@ -16,3 +16,17 @@ target rel: v1.6.1, digest: https://hub.docker.com/layers/kubeflownotebookswg/kf
 - kubeflownotebookswg/profile-controller:1.8.0-rc.0
 1. ref: https://hub.docker.com/r/kubeflownotebookswg/profile-controller/tags
 - kubeflownotebookswg/kfam:1.8.0-rc.0
+
+
+
+List of Kubeflow Components with Image Pull Issues:
+
+- kubeflownotebookswg/profile-controller:v.1.70
+- docker.io/kubeflownotebookswg/poddefaults-webhook:v1.7.0
+- docker.io/kubeflownotebookswg/kfam:v1.7.0
+- docker.io/kubeflownotebookswg/jupyter-web-app:v1.7.0
+- docker.io/kubeflownotebookswg/notebook-controller:v1.7.0
+- docker.io/kubeflownotebookswg/poddefaults-webhook:v1.7.0
+- docker.io/kubeflownotebookswg/tensorboard-controller:v1.7.0
+- docker.io/kubeflownotebookswg/tensorboards-web-app:v1.7.0
+- docker.io/kubeflownotebookswg/volumes-web-app:v1.7.0
