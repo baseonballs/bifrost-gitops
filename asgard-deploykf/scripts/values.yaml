@@ -260,6 +260,20 @@ deploykf_core:
       annotations: {}
       type: LoadBalancer
 
+    ## chart overrides
+    ##
+    charts:
+      istioGateway:
+        ## if false, you must create your own istio gateway ~deployment~ and ~service~
+        ##  - you do NOT need to create resources like `networking.istio.io/Gateway`
+        ##  - you must set the other values to match your deployment,
+        ##    otherwise deployKF will be unable to use them
+        enabled: true
+        name: gateway
+        ## NOTE: this version should be aligned with `deploykf_dependencies.istio.charts.istioDaemon.version`
+        # OLD : 1.17.3
+        version: 1.18.2
+        repository: https://istio-release.storage.googleapis.com/charts
 
   ## --------------------------------------
   ##      deploykf-profiles-generator
