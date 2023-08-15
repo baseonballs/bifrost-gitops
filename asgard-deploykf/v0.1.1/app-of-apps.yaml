@@ -6,8 +6,7 @@ metadata:
   namespace: "argocd"
   labels:
     app.kubernetes.io/name: asgard-deploykf
-    app.kubernetes.io/component: deploykf
-    app.kubernetes.io/part-of: "asgard-deploykf"
+    app.kubernetes.io/part-of: "deploykf"
 spec:
   project: "default"
   source:
